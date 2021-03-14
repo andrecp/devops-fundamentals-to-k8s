@@ -36,11 +36,19 @@ To create a virtual machine we're going to be using the Terraform [script](main.
 # Get the IP
 > terraform show | grep "ipv4"
 
-# Connect to it
+# Connect to it, replace 164.90.145.67 with your IP.
 > ssh root@164.90.145.67 
 ```
 
-If you want to know what else you can do with DigitalOcean and Terraform read the [docs](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs) on the Terraform DigitalOcean provider.
+## Destroy the virtual machine
+
+Once you're done, delete it so that you're no longer charged for it.
+
+```bash
+> terraform destroy --var do_sshkey=yyyyyyy --var do_token=xxxxxxx
+```
 
 ## Useful links
+
+* [terraform digital ocean provider](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/droplet)
 * [ssh key api](https://developers.digitalocean.com/documentation/v2/#ssh-keys)
