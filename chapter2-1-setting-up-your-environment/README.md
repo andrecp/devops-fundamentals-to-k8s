@@ -26,12 +26,14 @@ To create a virtual machine we're going to be using the Terraform [script](main.
 > terraform validate
 
 # Replace xxxxxxx with your personal access token and yyyyyyy with your ssh key id.
+> export DO_SSHKEY=yyyyyyy
+> export DO_TOKEN=xxxxxxx
 
 # See what terraform will do!
-> terraform plan --var do_sshkey=yyyyyyy --var do_token=xxxxxxx
+> terraform plan --var do_sshkey=$DO_SSHKEY --var do_token=$DO_TOKEN
 
 # Create the VM!
-> terraform apply --var do_sshkey=yyyyyyy --var do_token=xxxxxxx
+> terraform apply --var do_sshkey=$DO_SSHKEY --var do_token=$DO_TOKEN
 
 # Get the IP
 > terraform show | grep "ipv4"
@@ -45,7 +47,7 @@ To create a virtual machine we're going to be using the Terraform [script](main.
 Once you're done, delete it so that you're no longer charged for it.
 
 ```bash
-> terraform destroy --var do_sshkey=yyyyyyy --var do_token=xxxxxxx
+> terraform destroy --var do_sshkey=$DO_SSHKEY --var do_token=$DO_TOKEN
 ```
 
 ## Useful links
