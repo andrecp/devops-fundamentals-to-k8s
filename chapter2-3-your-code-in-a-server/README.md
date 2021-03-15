@@ -1,6 +1,6 @@
 # Your code in a server
 
-Read the [README.md](../chapter2-2-your-code-in-your-workstation/README.md) of setting up your environment to configure digital ocean and come back here!
+Read the [README.md](https://github.com/andrecp/devops-fundamentals-to-k8s/blob/main/chapter2-1-setting-up-your-environment/README.md) of setting up your environment to configure digital ocean and come back here!
 
 ## Create a virtual machine to be your server
 
