@@ -36,6 +36,7 @@ To create a virtual machine we're going to be using the Terraform [script](main.
 > terraform apply --var do_sshkey=$DO_SSHKEY --var do_token=$DO_TOKEN
 
 # Get the IP
+# It should printed to your terminal, otherwise.
 > terraform show | grep "ipv4"
 
 # Connect to it, replace 164.90.145.67 with your IP.

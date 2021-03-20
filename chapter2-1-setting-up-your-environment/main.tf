@@ -20,3 +20,7 @@ resource "digitalocean_droplet" "workstation" {
   size     = "s-1vcpu-1gb"
   ssh_keys = [var.do_sshkey]
 }
+
+output "public_ip" {
+  value = digitalocean_droplet.workstation.*.ipv4_address
+}
