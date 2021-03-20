@@ -55,3 +55,9 @@ Once you're done, delete it so that you're no longer charged for it.
 
 * [terraform digital ocean provider](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/droplet)
 * [ssh key api](https://developers.digitalocean.com/documentation/v2/#ssh-keys)
+
+## Common issues
+
+* Use `root@$IP` the IP to ssh. You shouldn't ssh as your user as it likely doesn't exist.
+* Add the ssh key to your ssh-agent
+* Speficy the ssh key, like, `ssh root@143.198.225.248 -i ~/.ssh/digitalocean_rsa`

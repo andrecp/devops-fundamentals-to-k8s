@@ -1,0 +1,8 @@
+[Unit]
+Description=webapp
+
+[Service]
+ExecStart=/srv/webapp.py
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,19 @@
+- name: Install a web application running through systemd
+  hosts: servers
+  tasks:
+    - name: Copy python script
+      copy:
+        src: webapp.py
+        dest: /srv/webapp.py
+        mode: 'u=xrw,g=rx'
+
+    - name: Copy systemd script
+      copy:
+        src: webapp.service
+        dest: /etc/systemd/system/webapp.service
+
+    - name: Enable webapp to run at boot and be managed by systemd
+      systemd:
+        name: webapp
+        state: started
+        enabled: true

@@ -1,10 +1,10 @@
-# Your code in a server
+# Your code in multiple servers
 
-Read [../chapter2-2-your-code-in-your-workstation/README.md](README.md) of setting up your environment to configure digital ocean and come back here!
+Read [../chapter2-1-setting-up-your-environment/README.md](README.md) of setting up your environment to configure digital ocean and come back here!
 
-## Create a virtual machine to be your server
+## Create your servers
 
-To create a virtual machine we're going to be using the Terraform [script](main.tf) in this folder. Feel free to inspect it and change the region or the vm (we're using sfo3 and the cheapest vm)
+To create our server VMs we're going to be using the Terraform [script](main.tf) in this folder. Feel free to inspect it and change the region or the vm (we're using sfo3 and the cheapest vm)
 
 ```bash
 
@@ -12,26 +12,26 @@ To create a virtual machine we're going to be using the Terraform [script](main.
 > terraform validate
 
 # Replace xxxxxxx with your personal access token and yyyyyyy with your ssh key id.
+> export DO_SSHKEY=yyyyyyy
+> export DO_TOKEN=xxxxxxx
 
 # See what terraform will do!
-> terraform plan --var do_sshkey=yyyyyyy --var do_token=xxxxxxx
+> terraform plan --var do_sshkey=$DO_SSHKEY --var do_token=$DO_TOKEN
 
-# Create the VM!
-> terraform apply --var do_sshkey=yyyyyyy --var do_token=xxxxxxx
+# Create the two VMs!
+> terraform apply --var do_sshkey=$DO_SSHKEY --var do_token=$DO_TOKEN
 
-# Get the IP
+# Get the IPs
+# It should printed to your terminal, otherwise.
 > terraform show | grep "ipv4"
-
-# Connect to it, replace 164.90.145.67 with your IP.
-> ssh root@164.90.145.67 
 ```
 
-## Destroy the virtual machine
+## Destroy the virtual machines
 
 Once you're done, delete it so that you're no longer charged for it.
 
 ```bash
-> terraform destroy --var do_sshkey=yyyyyyy --var do_token=xxxxxxx
+> terraform destroy --var do_sshkey=$DO_SSHKEY --var do_token=$DO_TOKEN
 ```
 
 ## Useful links
