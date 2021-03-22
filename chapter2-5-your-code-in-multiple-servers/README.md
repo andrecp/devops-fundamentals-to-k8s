@@ -26,6 +26,10 @@ To create our server VMs we're going to be using the Terraform [script](main.tf)
 > terraform show | grep "ipv4"
 ```
 
+## Provision your service
+
+Have a read on both the [ansible](ansible/) and the [packer](packer/) approaches to configure your web app!
+
 ## Destroy the virtual machines
 
 Once you're done, delete it so that you're no longer charged for it.

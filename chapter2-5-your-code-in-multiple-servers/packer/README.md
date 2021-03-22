@@ -19,5 +19,5 @@ Let's create a virtual machine template with packer.
 # Replace xxxxxxx with your personal access token and yyyyyyy with your ssh key id.
 > export DO_SSHKEY=yyyyyyy
 > export DO_TOKEN=xxxxxxx
-terraform apply --var do_sshkey=$DO_SSHKEY --var do_token=$DO_TOKEN 
+> terraform apply --var do_sshkey=$DO_SSHKEY --var do_token=$DO_TOKEN 
 ```
