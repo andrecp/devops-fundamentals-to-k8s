@@ -1,0 +1,38 @@
+{
+    "variables": {
+        "do_token": "{{env `DO_TOKEN`}}"
+    },
+
+    "builders": [
+        {
+            "type": "digitalocean",
+            "api_token": "{{user `do_token`}}",
+            "image": "ubuntu-20-04-x64",
+            "region": "sfo3",
+            "size": "s-1vcpu-1gb",
+            "ssh_username": "root",
+            "snapshot_name": "webapp-1"
+        }
+    ],
+
+    "provisioners": [
+        {
+            "type": "file",
+            "source": "webapp.py",
+            "destination": "/srv/webapp.py"
+        },
+        {
+            "type": "file",
+            "source": "webapp.service",
+            "destination": "/etc/systemd/system/webapp.service"
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "chmod +x /srv/webapp.py",
+                "systemctl start webapp.service",
+                "systemctl enable webapp.service"
+            ]
+        }
+    ]
+}
